@@ -1,0 +1,17 @@
+import re
+import csv
+
+with open('/content/FEH_00200521_220610143730.csv','r')as f:
+    reader=csv.reader(f)
+    n=0
+
+    for row in reader:
+      if n > 1:
+           code=row[0]
+           area=row[1]
+           number=re.sub('(,)','',row[2])
+           #print(row[0],row[1],row[2])
+           if code[2:5] =='000':
+             print(code,area,number)
+          
+      n += 1
